@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <article>
+            <button>Click Me 1</button>
+            <button>Click Me 2</button>
+            <button>Click Me 3</button>
+            <button>Click Me 4</button>
+            <button>Click Me 5</button>
+            <p>
+                Content here
+            </p>
+        </article>
+    </div>
+
+    <script>
+        document.querySelector('article').addEventListener('click',onClickEvent);
+
+
+    function onClickEvent(event) {
+        if (event.target.tagName == 'BUTTON') {
+            console.log('clicked',event.target.textContent);
+        }
+    }
+
+/*event.stopPropagation() -> stop the propagation on the 
+ element where is the event and not go further.
+ 
+ event.preventDefault() -> stops default action 
+ like clicking on a href link in anchor tag*/
+    </script>
+</body>
+
+</html>
