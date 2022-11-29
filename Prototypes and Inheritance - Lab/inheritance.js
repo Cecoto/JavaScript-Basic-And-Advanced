@@ -14,7 +14,7 @@ class FanctButton extends Button {
     }
 
     glow(){
-        console.log(`The button glows in ` + this.color);
+        console.log(`The button glows in the ` + this.color);
     }
 }
 
