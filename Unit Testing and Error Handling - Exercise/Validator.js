@@ -13,12 +13,12 @@ function requestValidator(obj) {
     }
     if (!(obj.version && validVersions.includes(obj.version))) {
 
-        throw new Error('Invalid request header: Invalid Version');
+        throw new Error('Invalid request header: Invalid  Version');
     }
     let messageRegex = /^[^<>\\&\'\"]+$/;
     if (!(obj.hasOwnProperty('message') && (obj.message==''|| messageRegex.test(obj.message)))) {
         
-        throw new Error('Invalid request header: Invalid Message');
+        throw new Error('Invalid request header:Invalid Message');
     }
     return obj;
 }
