@@ -24,9 +24,9 @@ let person = new createPerson("Peter", "Ivanov");
 console.log(person.fullName); //Peter Ivanov
 person.firstName = "George";
 console.log(person.fullName); //George Ivanov
-person.lastName = "Peterson";
-console.log(person.fullName); //George Peterson
+person.lastName = "Anderson";
+console.log(person.fullName); //George Anderson
 
-person.fullName = "Nikola Tesla";
+person.fullName = "Nikola Ivanov";
 console.log(person.firstName); //Nikola
-console.log(person.lastName); //Tesla
+console.log(person.lastName); //Ivanov
