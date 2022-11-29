@@ -23,7 +23,7 @@ describe('testing chars in a string', () => {
 
     });
 
-    it('both params are valid but the index is out of range', () => { 
+    it('both params are valid but the index is out of bound', () => { 
         expect(lookupChar('string',10)).to.equal('Incorrect index');
     });
 
