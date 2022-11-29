@@ -13,7 +13,6 @@ function addItem() {
     ulWhereWeAdd.appendChild(liElement);
 
     document.getElementById('newItemText').value = '';
-
-    // clear inputField
+// clear inputField
 
 }
