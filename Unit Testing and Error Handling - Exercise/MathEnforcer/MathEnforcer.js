@@ -62,11 +62,11 @@ describe('mathEnforcer', () => {
         it('should return undefined for invalid second param', () => {
             expect(mathEnforcer.sum(5, [])).to.equal(undefined);
         });
-        it('should retunr correct reuslt for integer params', () => {
+        it('should return correct reuslt for integer params', () => {
             expect(mathEnforcer.sum(5, -4)).to.equal(1);
         });
 
-        it('should retunr correct reuslt for floating numbers params', () => {
+        it('should return correct reuslt for floating numbers params', () => {
             expect(mathEnforcer.sum(2.7, 2.3)).to.be.closeTo(5, 0.01);
         });
     });
