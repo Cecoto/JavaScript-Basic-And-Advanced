@@ -15,7 +15,7 @@ describe('is odd or even tests', () => {
         expect(isOddOrEven(2)).to.be.undefined;
     });
 
-    it('should be undefined if array', () => {
+    it('should be undefined if it is array', () => {
         expect(isOddOrEven([])).to.be.undefined;
 
     });
