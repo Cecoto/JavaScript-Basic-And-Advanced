@@ -8,7 +8,7 @@ function deleteByEmail() {
     for (const row of tableRows) {
 
         if (row.children[1].textContent == input) {
-            const parent = row.parentElement;
+            const parent = row.parentNode;
             parent.removeChild(row);
             isFound = true;
         }
