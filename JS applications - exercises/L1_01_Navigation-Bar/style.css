@@ -1,0 +1,27 @@
+body
+{
+    margin: 0;
+}
+nav
+{
+    background-color: #234467;
+    
+    padding: 4px;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    
+}
+nav li
+{
+    
+    padding: 0px 20px;
+    display: inline-block;
+    
+
+}
+nav li a
+{
+    color: white;
+    text-decoration: none;
+}
