@@ -1,33 +1,59 @@
 function attachEvents() {
-    document.getElementById('submit').addEventListener('click', async () => {
-        const author = document.getElementById('author').value;
-        const content = document.getElementById('content').value;
+    document.getElementById('submit').addEventListener('click', createComment);;
+    document.getElementById('refresh').addEventListener('click', displayComments);
 
-        await sendMessage({author, content});
+    let url = 'http://localhost:3030/jsonstore/messenger';
+    let textArea = document.getElementById('contents');
+    function createComment() {
+        let authorName = document.querySelector('[name="author"]');
+        let content = document.querySelector('[name="content"]');
 
-        document.getElementById('author').value = '';
-        document.getElementById('content').value = '';
-    });
+        if (authorName.value == '' || content.value == '') {
+            return;
+        }
+        fetch(url, {
+            method: 'post',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                author: authorName.value.trim(),
+                content: content.value.trim()
+            })
+        })
+            .then(res => {
+                if (res.ok == false) {
+                    throw new Error('Error creating new record');
+                }
+                return res.json();
+            })
+            .catch(err => alert(err));
 
-    document.getElementById('refresh').addEventListener('click', getMessages);
+
+        authorName.value = '';
+        content.value = '';
+       
+    }
+    async function displayComments() {
+
+        try {
+            const response = fetch(url);
+            if (response.ok == false) {
+                throw new Error('Error');
+            }
+
+            let data = await (await response).json();
+            let comments = [];
+            Object.values(data).forEach(user => comments.push(`${user.author}: ${user.content}`))
+
+            textArea.value = comments.join('\n');
+
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+
 }
 
 attachEvents();
-
-
-async function getMessages() {
-    const response = await fetch('http://localhost:3030/jsonstore/messenger');
-    const data = await response.json();
-
-    const messages = Object.values(data).map(v => `${v.author}: ${v.content}`).join('\n');
-    document.getElementById('messages').value = messages;
-}
-
-async function sendMessage(message) {
-    const response = await fetch('http://localhost:3030/jsonstore/messenger', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(message)
-    });
-    const data = await response.json();
-}
