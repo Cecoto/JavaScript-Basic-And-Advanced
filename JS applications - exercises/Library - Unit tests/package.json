@@ -1,0 +1,16 @@
+{
+  "name": "library---unit-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "g": "^2.0.1",
+    "mocha": "^10.1.0"
+  }
+}
